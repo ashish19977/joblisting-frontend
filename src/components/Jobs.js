@@ -34,6 +34,21 @@ const JobsCom = () => {
   console.log(state)
   return(
     <div>
+      {
+        (!state.error && !state.loading) &&       
+        <div className='centered' style={{margin: '1em .5em'}}>
+          <Pagination
+            style={{color: 'gainsboro'}}
+            onChange = {onPaginationChange}
+            total={state.total}
+            pageSizeOptions = {[12,24,48]}
+            showTotal={total => `Total ${total}`}
+            current={pagination.page || 1}
+            pageSize = {pagination.pageSize || 24}
+          />
+        </div>
+      }
+    
       <div className='jobs-container'>
         {
           (!state.loading && !state.error) ? state.jobs.map(job => <JobCom loading={state.loading} job={job} key={job.id}/>) :
@@ -46,12 +61,13 @@ const JobsCom = () => {
 
       {
         (!state.error && !state.loading) &&       
-        <div className='centered' style={{margin: '1em 0'}}>
+        <div className='centered' style={{margin: '1em .5em'}}>
           <Pagination
+            style={{color: 'gainsboro'}}
             onChange = {onPaginationChange}
             total={state.total}
             pageSizeOptions = {[12,24,48]}
-            showTotal={total => `Total ${total} jobs`}
+            showTotal={total => `Total ${total}`}
             current={pagination.page || 1}
             pageSize = {pagination.pageSize || 24}
           />

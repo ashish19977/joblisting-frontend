@@ -21,6 +21,7 @@ html , body, #root{
 }
 
 .jobs-container{
+  padding: 0 1em;
   margin: 1em 0;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -35,4 +36,12 @@ html , body, #root{
 
 @media screen and (max-width: 600px) {
   .jobs-container{ grid-template-columns: 1fr; }
+}
+
+.badge{
+  float: right;
+  background-color:  #4d95af;
+  border-radius: 2em;
+  font-size: smaller;
+  padding: 0 .7em;
 }
