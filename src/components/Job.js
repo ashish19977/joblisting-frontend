@@ -37,7 +37,7 @@ const JobCom = ({ loading = true, job = {} }) => {
       bordered={false}
       style={{ width: '95%', backgroundColor: loading ? 'black' : '#00ace8' }}
       actions={[
-        <Button type="primary" shape="round" onClick={goToApplyLink}>Apply</Button>,
+        <Button type="primary" shape="round" onClick={loading  ? ()=>{} :goToApplyLink}>{ loading ? 'Loading ...' : 'Apply' }</Button>,
       ]}
     >
       <Skeleton loading={loading} avatar active>
