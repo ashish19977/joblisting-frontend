@@ -21,12 +21,12 @@ const JobCom = ({ loading = true, job = {} }) => {
     if(!site)
       return
     else
-      window.location.href = site
+      window.open(site, '')
   }
 
   const goToApplyLink = () => {
-    if(job){
-      window.location.href = job.url || ''
+    if(job.url){
+      window.open(job.url, '')
     }
   }
 

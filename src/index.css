@@ -45,3 +45,18 @@ html , body, #root{
   font-size: smaller;
   padding: 0 .7em;
 }
+
+.search{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 50%;
+  padding: 1em 0;
+  margin: auto,
+}
+
+@media screen and (max-width: 600px) {
+  .search{ width: 98%; flex-direction: column; margin: '2em auto'}
+  .auto{ margin: 1em 0;}
+  .input{ width: 100%;}
+}
