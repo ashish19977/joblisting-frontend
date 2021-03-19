@@ -8,7 +8,7 @@ import getJobs from '../services/jobs.service'
 
 const JobsCom = () => {
 
-  const { pagination:paginationFromSess = {}, searchFilters:searchFiltersFromSess = {} } = JSON.parse(sessionStorage .getItem('filters') || '{}')
+  const { pagination:paginationFromSess = {}, searchFilters:searchFiltersFromSess = {} } = JSON.parse(sessionStorage.getItem('filters') || '{}')
 
   const [state, setState] = useState({ loading: true })
   const [locations, setLocations] = useState([])
@@ -18,7 +18,7 @@ const JobsCom = () => {
   const getAllJobs = async () => {
     try{
       setState({...state, loading: true, error: undefined})
-      sessionStorage .setItem('filters', JSON.stringify(searchFilters))
+      sessionStorage.setItem('filters', JSON.stringify(searchFilters))
       const { jobs, total, locations: allLocations } = await getJobs(pagination, searchFilters)
       const locations = allLocations.map(location => ({ value: location }))
       setLocations(locations)
@@ -36,7 +36,7 @@ const JobsCom = () => {
 
 
   const onPaginationChange = (page, pageSize) => {
-    sessionStorage .setItem('pagination', JSON.stringify(pagination))
+    sessionStorage.setItem('pagination', JSON.stringify(pagination))
     setPagination({page: page, pageSize})
   }
 
